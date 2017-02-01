@@ -20,10 +20,16 @@
 @color-content: @color-white;
 @color-grid-header: @color-grey;
 
+@swift-out: cubic-bezier(.55,0,.1,1);
+
 /* MixIns */
 
 .shadow {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.transition(@argument) {
+    transition: @argument;
 }
 
 /* Common */
@@ -85,10 +91,6 @@ body {
 
 /* Grid */
 
-.grid {
-    padding: @before-grid-height @content-side-margin @after-grid-height @content-side-margin;
-    display: inline-block;
-}
 .grid-margin {
     background-color: @color-content;
     width: @content-side-margin;
@@ -96,55 +98,78 @@ body {
     top: @header-height;
     position: fixed;
     z-index: 100;
-}
-.grid-margin.left {
-    left: 0;
-}
-.grid-margin.right {
-    right: 0;
-}
-.thead {
-    white-space: nowrap;
-    position: relative;
-    z-index: 99;
-}
-.tbody {
-    white-space: nowrap;
 
-    .tr {
-        cursor: default;
+    &.left {
+        left: 0;
+    }
 
-        &:not(last-child) {
-            border-bottom: 1px solid @color-grey;
+    &.right {
+        right: 0;
+    }
+}
+
+.grid {
+    padding: @before-grid-height @content-side-margin @after-grid-height @content-side-margin;
+    display: inline-block;
+
+    &.grid-moved-right {
+        .th:first-child,
+        .td:first-child {
+            border-right: 1px solid @color-grey;
         }
+    }
 
-        &:hover {
+    .thead {
+        white-space: nowrap;
+        position: relative;
+        z-index: 99;
+
+        .th {
+            background-color: @color-grid-header;
+        }
+    }
+
+    .tbody {
+        white-space: nowrap;
+
+        .tr {
+            cursor: default;
+
+            &:not(last-child) {
+                border-bottom: 1px solid @color-grey;
+            }
+
+            &:hover {
+                .td {
+                    background-color: @color-grey-light;
+                }
+            }
+
             .td {
-                background-color: @color-grey-light;
+                background-color: @color-content;
             }
         }
     }
-}
-.tr {
-    padding-left: @grid-column-width;
-    position: relative;
-}
-.th {
-    background-color: @color-grid-header;
-}
-.td {
-    background-color: @color-content;
-}
-.th,
-.td {
-    display: inline-block;
-    white-space: nowrap;
-    padding: 10px;
-    width: @grid-column-width;
-}
-.th:first-child,
-.td:first-child {
-    position: absolute;
-    height: 100%;
-    left: 0;
+
+    .tr {
+        padding-left: @grid-column-width;
+        position: relative;
+    }
+
+    .th,
+    .td {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 10px;
+        width: @grid-column-width;
+
+        &:first-child {
+            border-right: 1px solid transparent;
+            position: absolute;
+            height: 100%;
+            left: 0;
+
+            .transition(border-right-color 500ms @swift-out);
+        }
+    }
 }

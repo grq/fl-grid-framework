@@ -49,10 +49,12 @@
                 }
                 /* Handler for header */
                 $(window).scroll(function(){
-                  $('.thead').css('top',$(window).scrollTop());
+                    $('.thead').css('top',$(window).scrollTop());
                 });
-                $(window).scroll(function(){
-                  $('.th:first-child, .td:first-child').css('left',$(window).scrollLeft());
+                $(window).scroll(function() {
+                    var scrollLeft = $(window).scrollLeft();
+                    $('.th:first-child, .td:first-child').css('left', scrollLeft);
+                    $('.grid').toggleClass('grid-moved-right', !!scrollLeft);
                 });
             });
         </script>
