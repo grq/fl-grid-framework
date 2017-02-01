@@ -2,13 +2,13 @@
 
 /* Variables */
 
-@header-height: 50px;
-@footer-height: 50px;
+@header-height: 60px;
+@footer-height: 60px;
 
 @before-grid-height: 50px;
 @after-grid-height: 50px;
 
-@content-side-margin: 20px;
+@content-side-margin: 100px;
 
 @grid-column-width: 120px;
 
@@ -147,6 +147,7 @@ body {
 
             .td {
                 background-color: @color-content;
+                .transition(background-color 250ms @swift-out);
             }
         }
     }

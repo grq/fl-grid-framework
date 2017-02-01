@@ -13,7 +13,7 @@ body {
   box-sizing: border-box;
 }
 .page-content {
-  padding: 50px 0 50px 0;
+  padding: 60px 0 60px 0;
 }
 /* Menus */
 .menu {
@@ -27,11 +27,11 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 .menu.header {
-  height: 50px;
+  height: 60px;
   top: 0;
 }
 .menu.footer {
-  height: 50px;
+  height: 60px;
   bottom: 0;
 }
 /* Page Contents */
@@ -39,25 +39,25 @@ body {
 .after-grid {
   background-color: #FFFFFF;
   position: fixed;
-  padding: 20px 20px;
+  padding: 20px 100px;
   z-index: 99;
   width: 100%;
   left: 0;
 }
 .before-grid {
   height: 50px;
-  top: 50px;
+  top: 60px;
 }
 .after-grid {
   height: 50px;
-  bottom: 50px;
+  bottom: 60px;
 }
 /* Grid */
 .grid-margin {
   background-color: #FFFFFF;
-  width: 20px;
-  bottom: 50px;
-  top: 50px;
+  width: 100px;
+  bottom: 60px;
+  top: 60px;
   position: fixed;
   z-index: 100;
 }
@@ -68,7 +68,7 @@ body {
   right: 0;
 }
 .grid {
-  padding: 50px 20px 50px 20px;
+  padding: 50px 100px 50px 100px;
   display: inline-block;
 }
 .grid.grid-moved-right .th:first-child,
@@ -97,6 +97,7 @@ body {
 }
 .grid .tbody .tr .td {
   background-color: #FFFFFF;
+  transition: background-color 250ms cubic-bezier(0.55, 0, 0.1, 1);
 }
 .grid .tr {
   padding-left: 120px;
