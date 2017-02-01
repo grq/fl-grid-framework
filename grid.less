@@ -1,0 +1,123 @@
+// out: grid.css, sourcemap: false, compress: false
+
+/* Common */
+
+@header-height: 50px;
+@footer-height: 50px;
+
+@before-grid-height: 50px;
+@after-grid-height: 50px;
+
+@content-side-margin: 20px;
+
+@grid-column-width: 120px;
+
+@color-grey: #e6e6e6;
+@color-blue: #3092c0;
+@color-white: #ffffff;
+
+@color-content: @color-white;
+@color-grid-header: @color-grey;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.page-content {
+    padding: @header-height 0 @footer-height 0;
+}
+
+/* Menus */
+
+.menu {
+    background-color: @color-blue;
+    color: @color-white;
+    position: fixed;
+    padding: 20px;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+}
+.header {
+    height: @header-height;
+    top: 0;
+}
+.footer {
+    height: @footer-height;
+    bottom: 0;
+}
+
+/* Page Contents */
+
+.before-grid,
+.after-grid {
+    background-color: @color-content;
+    position: fixed;
+    padding: 20px @content-side-margin;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+}
+.before-grid {
+    height: @before-grid-height;
+    top: @header-height;
+}
+.after-grid {
+    height: @after-grid-height;
+    bottom: @footer-height;
+}
+
+/* Grid */
+
+.grid {
+    padding: @before-grid-height @content-side-margin @after-grid-height @content-side-margin;
+    display: inline-block;
+}
+.grid-margin {
+    background-color: @color-content;
+    width: @content-side-margin;
+    bottom: @footer-height;
+    top: @header-height;
+    position: fixed;
+    z-index: 100;
+}
+.grid-margin.left {
+    left: 0;
+}
+.grid-margin.right {
+    right: 0;
+}
+.thead {
+    white-space: nowrap;
+    position: relative;
+    z-index: 99;
+}
+.tbody {
+    white-space: nowrap;
+}
+.tr {
+    padding-left: @grid-column-width;
+    position: relative;
+}
+.th {
+    background-color: @color-grid-header;
+    font-weight: bold;
+}
+.td {
+    background-color: @color-content;
+}
+.th,
+.td {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px;
+    width: @grid-column-width;
+}
+.th:first-child,
+.td:first-child {
+    position: absolute;
+    left: 0;
+}

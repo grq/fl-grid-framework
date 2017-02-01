@@ -1,0 +1,97 @@
+/* Common */
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.page-content {
+  padding: 50px 0 50px 0;
+}
+/* Menus */
+.menu {
+  background-color: #3092c0;
+  color: #ffffff;
+  position: fixed;
+  padding: 20px;
+  z-index: 99;
+  width: 100%;
+  left: 0;
+}
+.header {
+  height: 50px;
+  top: 0;
+}
+.footer {
+  height: 50px;
+  bottom: 0;
+}
+/* Page Contents */
+.before-grid,
+.after-grid {
+  background-color: #ffffff;
+  position: fixed;
+  padding: 20px 20px;
+  z-index: 99;
+  width: 100%;
+  left: 0;
+}
+.before-grid {
+  height: 50px;
+  top: 50px;
+}
+.after-grid {
+  height: 50px;
+  bottom: 50px;
+}
+/* Grid */
+.grid {
+  padding: 50px 20px 50px 20px;
+  display: inline-block;
+}
+.grid-margin {
+  background-color: #ffffff;
+  width: 20px;
+  bottom: 50px;
+  top: 50px;
+  position: fixed;
+  z-index: 100;
+}
+.grid-margin.left {
+  left: 0;
+}
+.grid-margin.right {
+  right: 0;
+}
+.thead {
+  white-space: nowrap;
+  position: relative;
+  z-index: 99;
+}
+.tbody {
+  white-space: nowrap;
+}
+.tr {
+  padding-left: 120px;
+  position: relative;
+}
+.th {
+  background-color: #e6e6e6;
+  font-weight: bold;
+}
+.td {
+  background-color: #ffffff;
+}
+.th,
+.td {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 10px;
+  width: 120px;
+}
+.th:first-child,
+.td:first-child {
+  position: absolute;
+  left: 0;
+}

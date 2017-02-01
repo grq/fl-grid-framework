@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+    <body>
+        <div class="header menu">HEADER</div>
+        <div class="page-content">
+            <div class="before-grid">
+                Something before grid: filters, operation, etc...
+            </div>
+            <div class="grid-margin left"></div>
+            <div class="grid">
+                <div class="thead">
+                </div>
+                <div class="tbody">
+                </div>
+            </div>
+            <div class="grid-margin right"></div>
+            <div class="after-grid">
+                Something after grid: paging, selected, etc...
+            </div>
+        </div>
+        <div class="footer menu">FOOTER</div>
+        <link href="grid.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                /* Render Table */
+                var columns = 20,
+                    records = 100;
+                var row = $('<div class="tr"/>');
+                for (var i = 0; i < columns; i++) {
+                    var name = i ? 'Header ' + i : 'Select';
+                    row.append('<div class="th">' + name + '</div>');
+                }
+                $('.thead').append(row);
+                for (var rec = 0; rec < records; rec++) {
+                    var row = $('<div class="tr"/>');
+                    for (var col = 0; col < columns; col++) {
+                        var name = col ? 'Record ' + rec + '-' + col : (rec + 1) + ')';
+                        row.append('<div class="td">' + name + '</div>');
+                    }
+                    $('.tbody').append(row);
+                }
+                /* Handler for header */
+                $(window).scroll(function(){
+                  $('.thead').css('top',$(window).scrollTop());
+                });
+                $(window).scroll(function(){
+                  $('.th:first-child, .td:first-child').css('left',$(window).scrollLeft());
+                });
+            });
+        </script>
+    </body>
+</html>
